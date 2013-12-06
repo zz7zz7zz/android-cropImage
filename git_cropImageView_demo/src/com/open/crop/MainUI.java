@@ -23,6 +23,7 @@ public class MainUI extends Activity {
 		findViewById(R.id.btn1).setOnClickListener(listener);
 		findViewById(R.id.btn2).setOnClickListener(listener);
 		findViewById(R.id.btn3).setOnClickListener(listener);
+		findViewById(R.id.btn4).setOnClickListener(listener);
 		
 		retImg=(ImageView)findViewById(R.id.retImg);
 	}
@@ -45,6 +46,10 @@ public class MainUI extends Activity {
 					
 				case R.id.btn3:
 					index=3;
+					break;
+					
+				case R.id.btn4:
+					index=4;
 					break;
 			}
 			mIntent.putExtra("index", index);

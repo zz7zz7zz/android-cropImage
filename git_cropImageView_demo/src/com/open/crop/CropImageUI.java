@@ -27,7 +27,10 @@ public class CropImageUI extends Activity {
 		{
 			cropImage3();
 		}
-		
+		else if(index==4)
+		{
+			cropImage4();
+		}
 	}
 	
 	private void cropImage1()
@@ -84,6 +87,30 @@ public class CropImageUI extends Activity {
 	{
 		setContentView(R.layout.fragment_cropimage3);
 		final CropImageView3 mCropImage=(CropImageView3)findViewById(R.id.cropImg);
+		mCropImage.setDrawable(getResources().getDrawable(R.drawable.precrop),300,300);
+		findViewById(R.id.save).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				new Thread(new Runnable(){
+
+					@Override
+					public void run() {
+						FileUtil.writeImage(mCropImage.getCropImage(), FileUtil.SDCARD_PAHT+"/crop.png", 100);
+						Intent mIntent=new Intent();
+						mIntent.putExtra("cropImagePath", FileUtil.SDCARD_PAHT+"/crop.png");
+						setResult(RESULT_OK, mIntent);
+						finish();
+					}
+				}).start();
+			}
+		});
+	}
+	
+	private void cropImage4()
+	{
+		setContentView(R.layout.fragment_cropimage4);
+		final CropImageView4 mCropImage=(CropImageView4)findViewById(R.id.cropImg);
 		mCropImage.setDrawable(getResources().getDrawable(R.drawable.precrop),300,300);
 		findViewById(R.id.save).setOnClickListener(new OnClickListener() {
 			

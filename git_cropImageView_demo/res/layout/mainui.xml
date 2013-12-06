@@ -21,6 +21,12 @@
          android:layout_width="match_parent"
     	 android:layout_height="wrap_content"
     	 android:text="@string/btn_text_3"/>
+     
+     <Button 
+         android:id="@+id/btn4"
+         android:layout_width="match_parent"
+    	 android:layout_height="wrap_content"
+    	 android:text="@string/btn_text_4"/>
            
      <ImageView 
          android:id="@+id/retImg"

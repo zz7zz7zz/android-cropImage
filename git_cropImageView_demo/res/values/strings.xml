@@ -5,5 +5,6 @@
     <string name="save">保存</string>
 	<string name="btn_text_1">底图缩放，浮层不变</string>
 	<string name="btn_text_2">底图不变，浮层移动</string>
-	<string name="btn_text_3">底图不变，浮层移动与缩放</string>
+	<string name="btn_text_3">底图不变，浮层移动与缩放(长方形)</string>
+	<string name="btn_text_4">底图不变，浮层移动与缩放(正方形)</string>
 </resources>
