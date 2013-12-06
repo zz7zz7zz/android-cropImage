@@ -4,6 +4,6 @@
     <string name="app_name">cropDemo</string>
     <string name="save">保存</string>
 	<string name="btn_text_1">底图缩放，浮层不变</string>
-	<string name="btn_text_2">底图不变，浮层不变</string>
-	<string name="btn_text_3">底图不变，浮层缩放</string>
+	<string name="btn_text_2">底图不变，浮层移动</string>
+	<string name="btn_text_3">底图不变，浮层移动与缩放</string>
 </resources>
