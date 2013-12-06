@@ -1,6 +1,5 @@
 package com.open.crop;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -75,11 +74,17 @@ public class CropImageView extends View {
 			
 	}
 	
-	@SuppressLint("NewApi")
 	private void init(Context context)
 	{
 		this.mContext=context;
-		this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		try {  
+            if(android.os.Build.VERSION.SDK_INT>=11)  
+            {  
+                this.setLayerType(LAYER_TYPE_SOFTWARE, null);  
+            }  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
 		mFloatDrawable=new FloatDrawable(context);//头像选择框
 	}
 

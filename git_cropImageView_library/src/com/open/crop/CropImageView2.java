@@ -1,6 +1,5 @@
 package com.open.crop;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -48,6 +47,7 @@ public class CropImageView2 extends View {
 	protected Rect mDrawableDst = new Rect();
 	protected Rect mDrawableFloat = new Rect();//浮层选择框，就是头像选择框
 	protected boolean isFrist=true;
+	private boolean isTouchInSquare=true;
 	
 	protected Context mContext;
     
@@ -67,11 +67,18 @@ public class CropImageView2 extends View {
 			
 	}
 	
-	@SuppressLint("NewApi")
 	private void init(Context context)
 	{
 		this.mContext=context;
-		this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		try {  
+            if(android.os.Build.VERSION.SDK_INT>=11)  
+            {  
+            	this.setLayerType(LAYER_TYPE_SOFTWARE, null);  
+            }  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+		
 		mFloatDrawable=new FloatDrawable(context);//头像选择框
 	}
 
@@ -116,6 +123,8 @@ public class CropImageView2 extends View {
 			case MotionEvent.ACTION_DOWN:
 				oldX = event.getX();
 				oldY = event.getY();
+				isTouchInSquare=mDrawableFloat.contains((int)event.getX(), (int)event.getY());
+				
 	            break;
 	            
 			case MotionEvent.ACTION_UP:
@@ -141,7 +150,7 @@ public class CropImageView2 extends View {
 					oldX=event.getX();
 					oldY=event.getY();
 					
-					if(!(dx==0&&dy==0)&&mDrawableFloat.contains((int)event.getX(), (int)event.getY()))
+					if(!(dx==0&&dy==0)&&isTouchInSquare)
 					{
 						mDrawableFloat.offset((int)dx, (int)dy);
 						invalidate();
@@ -152,6 +161,7 @@ public class CropImageView2 extends View {
 		
 		return true;
 	}
+	
 
 	@Override
 	protected void onDraw(Canvas canvas) {
