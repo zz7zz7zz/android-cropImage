@@ -61,7 +61,8 @@ public class CropImageView4 extends View {
 	protected Rect mDrawableDst = new Rect();
 	protected Rect mDrawableFloat = new Rect();//浮层选择框，就是头像选择框
 	protected boolean isFrist = true;
-
+	private boolean isTouchInSquare=true;
+	
 	protected Context mContext;
 
 	public CropImageView4(Context context) {
@@ -121,6 +122,8 @@ public class CropImageView4 extends View {
 			oldX = event.getX();
 			oldY = event.getY();
 			currentEdge = getTouchEdge((int) oldX, (int) oldY);
+			isTouchInSquare=mDrawableFloat.contains((int)event.getX(), (int)event.getY());
+			
 			Log.v("currentEdge：" + currentEdge, "-------");
 			break;
 
@@ -145,7 +148,6 @@ public class CropImageView4 extends View {
 				oldX = event.getX();
 				oldY = event.getY();
 
-				boolean isEventInRect = mFloatDrawable.getBounds().contains((int) event.getX(), (int) event.getY());
 				if (!(dx == 0 && dy == 0)) {
 					int toMoveOf = 0;
 					if (Math.abs(dx) >= Math.abs(dy)) {
@@ -182,7 +184,7 @@ public class CropImageView4 extends View {
 						break;
 
 					case EDGE_MOVE_IN:
-						if (isEventInRect) {
+						if (isTouchInSquare) {
 							mDrawableFloat.offset((int) dx, (int) dy);
 						}
 						break;
