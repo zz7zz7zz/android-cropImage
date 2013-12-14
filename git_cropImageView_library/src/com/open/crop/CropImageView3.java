@@ -273,6 +273,19 @@ Log.v("currentEdge："+currentEdge, "-------");
 			
 			int floatWidth=dipTopx(mContext, cropWidth);
 			int floatHeight=dipTopx(mContext, cropHeight);
+			
+			if(floatWidth>getWidth())
+			{
+				floatWidth=getWidth();
+				floatHeight=cropHeight*floatWidth/cropWidth;
+			}
+			
+			if(floatHeight>getHeight())
+			{
+				floatHeight=getHeight();
+				floatWidth=cropWidth*floatHeight/cropHeight;
+			}
+			
 			int floatLeft=(getWidth()-floatWidth)/2;
 			int floatTop = (getHeight()-floatHeight)/2;
 			mDrawableFloat.set(floatLeft, floatTop,floatLeft+floatWidth, floatTop+floatHeight);
