@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">cropDemo</string>
+    <string name="app_name">git_cropImage</string>
     <string name="save">保存</string>
 	<string name="btn_text_1">底图缩放，浮层不变</string>
 	<string name="btn_text_2">底图不变，浮层移动</string>
