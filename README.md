@@ -9,9 +9,10 @@ Android CropImage
 
 
 ## 二、效果展示 
-![github](http://img.blog.csdn.net/20130511221007401 "附图一") ![github](http://img.blog.csdn.net/20130511221013495 "附图二b") ![github](http://img.blog.csdn.net/20130511221020784 "附图三") 
 
+图片依次：（主界面------>裁剪图片------>裁剪后回到主界面预览图片）
 
+![github](https://github.com/zz7zz7zz/android-cropImage/blob/master/1.jpg "附图一") 
 
 
 
